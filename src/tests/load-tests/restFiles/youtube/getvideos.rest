@@ -1,0 +1,20 @@
+GET http://localhost:5001/video/retrieve-podcasts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njc4Nzk1NiwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY4NzQzNTZ9.bM5csjNaATYX8QL3F7LMBy_bC7t19-nG9c2-TqT7_5U
+
+###
+POST http://localhost:5001/video/youtubeAccessToken
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njc4Nzk1NiwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY4NzQzNTZ9.bM5csjNaATYX8QL3F7LMBy_bC7t19-nG9c2-TqT7_5U
+
+{
+    "user":{
+        "accessLevel":[
+            "standard-user",
+            "admin"
+        ],
+        "username":"tomstestuser",
+        "email":"tomstestuser@gmail.com"
+    },
+    "pageName":"podcasts"
+}

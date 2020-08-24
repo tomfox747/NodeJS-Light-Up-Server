@@ -1,0 +1,336 @@
+### TODO Test 1 PASS
+// Valid input
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJyYWRhbW9yZzAwNyIsImlhdCI6MTU4NjI5MTQyOC40MDcsImV4cCI6MTU4NjM3NzgyOH0.4mm-4Zrm9zKnWWbsERyzsxRpuT2EHqokExPWpZF9mqo
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 2 PASS
+// invalid input: scheduledTime is a not a number
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"alphaGo",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 3 PASS
+// invalid input: expiredTime is a not a number
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "expiredTime":"alphaGo",
+        "activeStatus":"upComing"   
+    }
+}
+
+
+### TODO Test 4 PASS
+// invalid input: description contains over 600 chars: contains 601 chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"Apart from counting words and characters, our online editor can help you to improve word choice and writing style, and, optionally, help you to detect grammar mistakes and plagiarism. To check word count, simply place your cursor into the text box above and start typing. You'll see the number of characters and words increase or decrease as you type, delete, and edit them. You can also copy and paste text from another program over into the online editor above. The Auto-Save feature will make sure you won't lose any changes while editing, even if you leave the site and come back later. Tip: Bookm",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 5 PASS
+// invalid input: title contains over 117 chars: contains 118 chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"Apart from counting words and characters, our online editor can help you to improve word online editor can help you htest webinar",
+        "description":"Apart from counting words and characters",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 6 PASS
+// invalid input: host contains over 50 chars: contains 51 chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"Apart from counting words and characters, our onlin",
+        "url":"www.azoomsite.com",
+        "title":"Apart from counting words",
+        "description":"Apart from counting words and characters",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+
+### TODO Test 7 PASS
+// invalid input: description contains illegal special char: contains <> chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"Apart from counting words and characters, our online editor can help you to improve word choice and writing style, and, optionally, help you to detect grammar mistakes and plagiarism. To check word count, simply place your cursor into the text box above and start typing. You'll see the number of characters and words increase or decrease as you type, delete, <Script> and edit them. You can also copy and paste text from another program over into the online editor above. The Auto-Save feature will make sure you won't lose any changes while editing, even if you leave the site and come",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 8 PASS
+// invalid input: title contains over illegal chars: contains * chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"*Apart from counting words and characters, our online editor can help online editor can help you htest webinar",
+        "description":"Apart from counting words and characters",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 9 PASS
+// invalid input: title contains  legal chars: contains ! chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"Apart from counting words! and characters, our online editor can help online editor can help you htest webinar",
+        "description":"Apart from counting words and characters",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 10 PASS
+// invalid input: description contains legal special char: contains ? chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"Apart from counting words and characters, our online editor can help you to improve word choice and writing style, and, optionally, help you to detect grammar mistakes and plagiarism? To check word count, simply place your cursor into the text box above and start typing. You'll see the number of characters and words increase or decrease as you type, delete, and edit them. You can also copy and paste text from another program over into the online editor above. The Auto-Save feature will make sure you won't lose any changes while editing, even if you leave the site and come",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 12 PASS
+// invalid input: host contains illegal chars: contains @ chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"Apart from counting @words and characters",
+        "url":"www.azoomsite.com",
+        "title":"Apart from counting words",
+        "description":"Apart from counting words and characters",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 13 PASS
+// invalid input: host contains legal chars: contains . chars
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"Apart from counting words and characters.",
+        "url":"www.azoomsite.com",
+        "title":"Apart from counting words",
+        "description":"Apart from counting words and characters",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 14 PASS
+// Invalid Input: Test Mongo santization on intputs
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.$azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 15 PASS
+// inValid input: Missing WebinarObject
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "otherObject":{
+        "ImNotvalid": "Bug"
+    }
+}
+
+### TODO Test 16 PASS
+// Invalid Input: missing host
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 17 PASS
+// Invalid Input: missing url
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 18 PASS
+// Invalid Input: missing title
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 19 PASS
+// Invalid Input: missing description
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 20 PASS
+// Invalid Input: missing scheduledTime
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+### TODO Test 21 PASS
+// Invalid Input: missing expiredTime
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "activeStatus":"upComing"   
+    }
+}
+
+
+
+###
+GET http://localhost:5001/webinars/retrieve
+Content-Type: : application/json

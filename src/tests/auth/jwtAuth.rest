@@ -1,0 +1,57 @@
+
+
+### Valid Correct username and password
+POST http://tomfox.dev/auth/login
+Content-Type: application/json
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        }
+}
+
+### Valid Correct username and password
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+
+{
+        "user":{
+            "username": "bradamorg007",
+            "password": "HelloWorld123"
+        }
+}
+
+###
+// Logout with valid token
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer algnonetypJW.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjM2NjYzOSwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY0NTMwMzl9.pFRf8gWXqhDy27BeD_OrIauTst7fJhRq4yHnEo4_eLo
+audience: Bearer www.lightup-platform.com
+
+
+###
+// Logout with valid token
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njg3NzY1NiwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY5NjQwNTZ9.qAs7tChyiQV_qJ1_9TtFQb8lufcmB7XPqn_2f_TmM60
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        }
+}
+
+###
+// Try get new Refresh tokem
+POST   http://localhost:5001/auth/refresh-token
+Content-Type: application/json
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        },
+        "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njg3NTIzNywiZXhwIjoxNTg2OTYxNjM3fQ.jjvhmlh2Mcm9PEU-PxeH2Pqh260qIH-wF2Go5xsbJcc"
+}

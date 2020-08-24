@@ -1,0 +1,45 @@
+{"level":"info","route":"/auth/login"}
+{"level":"info","route":"/auth/login"}
+{"level":"info","route":"/auth/login"}
+{"level":"info","route":"/auth/login"}
+{"level":"info","route":"/auth/login"}
+{"level":"info","route":"/auth/login"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"route-> /login || message-> [object Object] || method-> /login || params-> tomstestuser?Tomstestuser747? || user-> tomstestuser"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"route-> /auth/login || message-> undefined || method-> /login || params-> tomstestuser?Tomstestuser747? || user-> tomstestuser"}
+{"level":"info","route":"/auth/login"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"route-> /auth/login || message-> API Response: Access denied: User already logged into system || method-> /login || params-> tomstestuser?Tomstestuser747? || user-> tomstestuser"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"ROUTE-> /auth/login || MESSAGE-> API Response: Access denied: User already logged into system || METHOD-> /login || PARAMS-> tomstestuser?Tomstestuser747? || USER-> tomstestuser"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"ROUTE-> /auth/login || MESSAGE-> API Response: Access denied: User already logged into system || METHOD-> /login || PARAMS-> tomstestuser?Tomstestuser747? || USER-> tomstestuser"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"1586608592917 || ROUTE-> /auth/login || MESSAGE-> API Response: Access denied: User already logged into system || METHOD-> /login || PARAMS-> tomstestuser?Tomstestuser747? || USER-> tomstestuser"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"2020-04-11T13:37:47+01:00 || ROUTE-> /auth/login || MESSAGE-> API Response: Access denied: User already logged into system || METHOD-> /login || PARAMS-> tomstestuser?Tomstestuser747? || USER-> tomstestuser"}
+{"level":"info","route":"/auth/logout"}
+{"level":"info","route":"/auth/logout"}
+{"level":"info","route":"/auth/logout"}
+{"level":"info","route":"/auth/logout"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"2020-04-11T14:24:58+01:00 || ROUTE-> /auth/login || MESSAGE-> API Response: Access denied: User already logged into system || METHOD-> /login || PARAMS-> tomstestuser?Tomstestuser747? || USER-> tomstestuser"}
+{"level":"info","route":"/auth/logout"}
+{"level":"error","message":"2020-04-11T14:25:05+01:00 || ROUTE-> /auth/logout || MESSAGE-> undefined || METHOD-> jwtAuthentication || PARAMS->  || USER-> bradamorg007"}
+{"level":"info","route":"/auth/logout"}
+{"level":"info","route":"/auth/logout"}
+{"level":"error","message":"2020-04-11T14:38:40+01:00 || ROUTE-> /auth/logout || MESSAGE-> jwt expired || METHOD-> jwtAuthentication || PARAMS->  || USER-> bradamorg007"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"2020-04-11T14:59:18+01:00 || ROUTE-> /auth/login || MESSAGE-> API Response: Access denied: User already logged into system || METHOD-> /login || PARAMS-> \"tomstestuser\"?\"Tomstestuser747\"? || USER-> tomstestuser"}
+{"level":"info","route":"/auth/login"}
+{"level":"error","message":"2020-04-11T16:06:57+01:00 || ROUTE-> /auth/login || MESSAGE-> API Response: Access denied: User already logged into system || METHOD-> /login || PARAMS-> {\"username\":\"tomstestuser\",\"password\":\"Tomstestuser747\"}? || USER-> tomstestuser"}
+{"level":"info","route":"/auth/logout"}
+{"level":"error","message":"2020-04-11T16:07:04+01:00 || ROUTE-> /auth/logout || MESSAGE-> jwt expired || METHOD-> jwtAuthentication || PARAMS->  || USER-> bradamorg007"}
+{"level":"info","route":"/auth/refresh-token"}
+{"level":"error","message":"2020-04-11T16:07:12+01:00 || ROUTE->  || MESSAGE-> API Response: Query not found in database || METHOD-> getUser || PARAMS-> {\"username\":\"bradamorg007\",\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYnJhZGFtb3JnMDA3IiwiaWF0IjoxNTg2MDA2MTYwLjI2LCJleHAiOjE1ODYwOTI1NjB9.4W6eUW8jY3Bqr5b0A4NwcuMBoWD7dRXiuYSpBzr1zp0\"}?undefined? || USER-> "}
+{"level":"error","message":"2020-04-11T16:07:12+01:00 || ROUTE-> /auth/refresh-token || MESSAGE-> API Response: Query not found in database || METHOD-> refreshTokenAuthentication || PARAMS-> \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYnJhZGFtb3JnMDA3IiwiaWF0IjoxNTg2MDA2MTYwLjI2LCJleHAiOjE1ODYwOTI1NjB9.4W6eUW8jY3Bqr5b0A4NwcuMBoWD7dRXiuYSpBzr1zp0\"? || USER-> "}
+{"level":"info","route":"/register"}
+{"level":"info","route":"/register"}
+{"level":"info","route":"/register"}
+{"level":"error","message":"2020-04-11T16:15:09+01:00 || ROUTE-> /register || MESSAGE-> API Response: The username already exists || METHOD-> validateRegisterAccountInputs || PARAMS-> {\"username\":\"tomstestuser\",\"email\":\"tomstestuser@gmail.com\",\"password\":\"Tomstestuser747\"}? || USER-> "}

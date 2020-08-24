@@ -1,0 +1,53 @@
+{
+  "name": "light-up-server",
+  "version": "1.0.0",
+  "description": "Light up platform API service",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "start:dev": "babel-node src/index.js",
+    "build": "babel src -d dist -s",
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RSGresources/Light-Up-Server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RSGresources/Light-Up-Server/issues"
+  },
+  "homepage": "https://github.com/RSGresources/Light-Up-Server#readme",
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "axios": "^0.19.2",
+    "babel-jest": "^25.3.0",
+    "bcrypt": "^4.0.1",
+    "content-filter": "^1.1.2",
+    "cors": "^2.8.5",
+    "cryptr": "^6.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.1",
+    "googleapis": "^48.0.0",
+    "helmet": "^3.22.0",
+    "jest": "^25.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.6",
+    "supertest": "^4.0.2",
+    "winston": "^3.2.1"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "dist",
+      "build"
+    ],
+    "testEnvironment": "node"
+  }
+}

@@ -1,0 +1,125 @@
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjM1MzgxMS4wMTksImV4cCI6MTU4NjQ0MDIxMX0.7FElAAaMWNRpMqb1FPPPpK2cMA35e8PX9vAQSnTxP6s
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"test webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1586154836",
+        "expiredTime":"1586158436",
+        "activeStatus":"upComing"   
+    }
+}
+
+//upload a correct webinar
+###
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njc2MjkyMywiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY4NDkzMjN9.OcPnLRkvWu_x6ZO0syPLIjbV097rnrQzTrnplK97V6s
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"correct webinar",
+        "description":"test webinar description",
+        "scheduledTime":"1622764777",
+        "expiredTime":"1629964777",
+        "activeStatus":"upComing"   
+    }
+}
+
+### upload webinar in the past
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjM1MzgxMS4wMTksImV4cCI6MTU4NjQ0MDIxMX0.7FElAAaMWNRpMqb1FPPPpK2cMA35e8PX9vAQSnTxP6s
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"webinar in the past",
+        "description":"test webinar description",
+        "scheduledTime":"1586091654",
+        "expiredTime":"1586097054",
+        "activeStatus":"upComing"   
+    }
+}
+
+### upload webinar over 1 month in the future
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjM1MzgxMS4wMTksImV4cCI6MTU4NjQ0MDIxMX0.7FElAAaMWNRpMqb1FPPPpK2cMA35e8PX9vAQSnTxP6s
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"webinar in the past",
+        "description":"test webinar description",
+        "scheduledTime":"1589547654",
+        "expiredTime":"1589553054",
+        "activeStatus":"upComing"   
+    }
+}
+
+### upload webinar with end time within 1 hour of start time
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjM1MzgxMS4wMTksImV4cCI6MTU4NjQ0MDIxMX0.7FElAAaMWNRpMqb1FPPPpK2cMA35e8PX9vAQSnTxP6s
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"webinar in the past",
+        "description":"test webinar description",
+        "scheduledTime":"1586955654",
+        "expiredTime":"1586957454",
+        "activeStatus":"upComing"   
+    }
+}
+
+### upload webinar with end time over 3 hours after start time
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjM2MzQzOCwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY0NDk4Mzh9.ARNSxyYIh_5pkTcy1u_JzMj88cU8J7ll63uw8J3rh1o
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"webinar in the past",
+        "description":"test webinar description",
+        "scheduledTime":"1586529054",
+        "expiredTime":"1586550654",
+        "activeStatus":"upComing"   
+    }
+}
+
+
+### get all podcast objects
+GET http://localhost:5001/webinars/retrieve
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjM2MzQzOCwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY0NDk4Mzh9.ARNSxyYIh_5pkTcy1u_JzMj88cU8J7ll63uw8J3rh1o
+
+###
+POST http://localhost:5001/webinars/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjkzNDYyNywiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciIsImFkbWluIl0sImV4cCI6MTU4NzAyMTAyN30.QbqkOF2NnrLuy_9VlyjZDIAjwkIlwEbCCJ_JKCSmmz0
+audience: Bearer www.lightup-platform.com
+
+{
+    "webinarObject":{
+        "host":"test host",
+        "url":"www.azoomsite.com",
+        "title":"webinar in the past",
+        "description":"test webinar description",
+        "scheduledTime":"1587196800",
+        "expiredTime":"1587204000",
+        "activeStatus":"upComing"   
+    }
+}

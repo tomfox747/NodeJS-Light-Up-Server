@@ -1,0 +1,221 @@
+### 
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjQzODk2MywiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY1MjUzNjN9.sPWK8qgixrrnMmnewCQGVT3wsKp_893JtfPIVTq4FAg
+// TODO set up By creating an Account
+POST http://localhost:5001/register
+content-type: application/json
+Audience: Bearer www.lightup-platform.com
+
+
+{
+   "user": {
+        "username":"tomstestuser",
+        "email": "tomstestuser@gmail.com",
+        "password": "Tomstestuser747"
+    }
+}
+###
+POST http://localhost:5001/register
+content-type: application/json
+Audience: Bearer www.lightup-platform.com
+
+
+{
+   "user": {
+        "username":"bradamorg007",
+        "email": "bradamorg.test@gmail.com",
+        "password": "HellowWorld123"
+    }
+}
+
+###
+// TESTING PASSWORD AUTHORIZATION /////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+### TODO test 1 Valid Correct username and password PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Audience: Bearer www.lightup-platform.com
+
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        }
+}
+
+### TODO 2 Logout with valid access token PASS
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjQzNzIwOSwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY0MzcyNjl9.1dxUxhUWS5rxalK5ocvraAI12fGIutEPfHTqREEYvQU
+Audience: Bearer www.lightup-platform.com
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 3 invalid password PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjQzNTQ0OCwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY1MjE4NDh9.QgXt2v67EO1IWGsHCbWUqnJVC-LlbVwVYo5BHy8TGvs
+Audience: Bearer www.lightup-platform.com
+
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "tomstestuser747"
+        }
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 4 invalid username PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Audience: Bearer www.lightup-platform.com
+
+
+{
+        "user":{
+            "username": "tomststuser",
+            "password": "Tomstestuser747"
+        }
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 5 valid username of someone elses account but invalid password PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Audience: Bearer www.lightup-platform.com
+
+
+{
+        "user":{
+            "username": "bradamorg007",
+            "password": "interStella123"
+        }
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 6 Double login PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Audience: Bearer www.lightup-platform.com
+
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        }
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 7 Test jwt auth using a valid access token but the user is not logged in. Simulates someones access token being stolen and being used PASS
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjQzNTQ0OCwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY1MjE4NDh9.QgXt2v67EO1IWGsHCbWUqnJVC-LlbVwVYo5BHy8TGvs
+Audience: Bearer www.lightup-platform.com
+
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 8 Test access Expiry time. that access token returns invalid if expried PASS
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjQzNzIwOSwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY0MzcyNjl9.1dxUxhUWS5rxalK5ocvraAI12fGIutEPfHTqREEYvQU
+Audience: Bearer www.lightup-platform.com
+
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 9 Test when access token is not provided PASS
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Audience: Bearer www.lightup-platform.com
+Authorization: Bearer 
+
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 10 Test when Audience is not provided PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Authorization: Bearer 
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 11 Test when audience is incorrect PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Audience: Bearer www.lightBee.com
+
+
+### TODO test 12 Test when audience is correct PASS
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Audience: Bearer www.lightup-platform.com
+
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 13 Test when Algo is in acces token header is set to none PASS
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer 
+
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 14 Test Malform audience
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4NjQ0MTQyNCwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJhdWRpZW5jZSI6Ind3dy5saWdodHVwLXBsYXRmb3JtLmNvbSIsImV4cCI6MTU4NjUyNzgyNH0.4xCRJ_Ei7eaYCEfM1rvldkPIREbH35V59NirpkEfLLI
+Audience: Bearer www.lightup-platform.com
+
+### TODO test 15 Test Malform username
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer 
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 16 Test Malform accessLevel
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer 
+
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 17 Refresh token usage: using valid refresh token.
+POST http://localhost:5001/auth/refresh-token
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njg2MDExMywiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY5NDY1MTN9.BnAme_HaY81926Wsegu2MkcBYzrXJAI4AWWVI_e9DGU
+Audience: Bearer www.lightup-platform.com
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njg1OTk1NSwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY5NDYzNTV9.f2iXpdOUKAINhuQcXdefrWttSBtbazk5YOrt5GaOSsw"
+}
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 18 Refresh token usage: refresh token not provided.
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Authorization: Bearer 
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 19 Malform Refresh token: inavlid refresh token 
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Authorization: Bearer
+
+///////////////////////////////////////////////////////////////////////////
+
+### TODO test 20  invalid rehresh token: Try get a new refresh token when user is logged out
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+Authorization: Bearer

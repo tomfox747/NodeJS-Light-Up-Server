@@ -1,0 +1,13 @@
+////////
+once a task is completed remove it from the list or write completed next to it
+////////
+
+add upcoming and scheduled into webinar statuses
+
+implement update access level via access token
+
+update refresh end point so that generateJWT token uses information from the database
+
+implement https, buy certificate and find out how to use it with the server
+
+remove testing process from the server and put into a seperate repo

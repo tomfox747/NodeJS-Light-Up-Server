@@ -1,0 +1,43 @@
+
+# {
+#   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYnJhZGFtb3JnMDA3IiwiaWF0IjoxNTg2MTg4NTA5LjY0MywiZXhwIjoxNTg2MTg5NDA5fQ.uflgaxGtAmqW_u5j0Dn_Pc0GPKZ-7dxIgELsC8iMKT8",
+#   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYnJhZGFtb3JnMDA3IiwiaWF0IjoxNTg2MTg4NTA5LjY0MywiZXhwIjoxNTg2Mjc0OTA5fQ.dkaZBXpPaK9j-PljPB6puJvFQ828WHicQUxlgOx19hg"
+# }
+
+### Valid Correct username and password
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        }
+}
+
+
+###
+// Logout with valid token
+DELETE  http://localhost:5001/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njc2MjkyMywiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY4NDkzMjN9.OcPnLRkvWu_x6ZO0syPLIjbV097rnrQzTrnplK97V6s
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        }
+}
+
+###
+// Try get new Refresh tokem
+POST   http://localhost:5001/auth/refresh-token
+Content-Type: application/json
+
+{
+        "user":{
+            "username": "tomstestuser",
+            "password": "Tomstestuser747"
+        },
+        "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njc4Nzk1NiwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY4NzQzNTZ9.Bx7eCrt9wiedKTwmJjxNRVGMNZKlsyOmk55PedlaKJo"
+}

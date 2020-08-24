@@ -1,0 +1,97 @@
+###
+POST http://localhost:5001/health-check
+
+
+
+###
+// correct input fields
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+   "user": {
+        "username":"tomstestuser2",
+        "email": "tomstestuser2@gmail.com",
+        "password": "Tomstestuser747"
+    }
+}
+
+###
+// correct input fields BUT mongo special characters in place
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+   "user": {
+        "username":"$JoshiBoi",
+        "email": "bradley.morgan.test1190@gmail.com",
+        "password": "HelloWorld123"
+    }
+}
+
+###
+// correct input fields BUT diff username and same email
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+   "user": {
+        "username":"joshiBoi",
+        "email": "bradley.morgan.test190@gmail.com",
+        "password": "HelloWorld123"
+    }
+}
+
+###
+// correct input fields BUT diff email and same username
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+   "user": {
+        "username":"bradamorg007",
+        "email": "rob_Da_best@gmail.com",
+        "password": "HelloWorld123"
+    }
+}
+
+######
+// correct input fields
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+   "user": {
+        "username":"TomFox747",
+        "email": "tomFox007@gmail.com",
+        "password": "AlignToTheStars200"
+    }
+}
+
+###
+// Incorrect Password Pattern No number provided
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+   "user": {
+        "username":"brad007",
+        "email": "bradley.morgan.test.store.190@gmail.com",
+        "password": "helloworld"
+    }
+}
+
+###
+// Incorrect Password Pattern special character check
+POST http://localhost:5001/register
+content-type: application/json
+
+{
+   "user": {
+        "username":"bradamorg007",
+        "email": "bradley.morgan.test190@gmail.com",
+        "password": "<script>alert()</script>HelloWorld123"
+    }
+}
+
+###

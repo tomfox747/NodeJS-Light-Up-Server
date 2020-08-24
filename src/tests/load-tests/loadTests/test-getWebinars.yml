@@ -1,0 +1,13 @@
+config:
+  target: 'http://localhost:5001'
+  phases:
+    - duration: 60
+      arrivalRate: 20
+  defaults:
+    headers:
+      Content-Type: 'application/json'
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbXN0ZXN0dXNlciIsImlhdCI6MTU4Njg1ODAzNSwiZXhwIjoxNTg2OTQ0NDM1fQ.-vMUtsgw85IL91KtXMo1ludmStelJdrYhgS3OqNyeLM'
+scenarios:
+  - flow:
+    - get:
+        url: "/webinars/retrieve"

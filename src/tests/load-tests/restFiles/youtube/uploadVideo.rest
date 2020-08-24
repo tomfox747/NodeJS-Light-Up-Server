@@ -1,0 +1,13 @@
+POST http://localhost:5001/video/upload-podcasts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJyYWRhbW9yZzAwNyIsImlhdCI6MTU4NjM1MTYxNiwiYWNjZXNzTGV2ZWwiOlsic3RhbmRhcmQtdXNlciJdLCJleHAiOjE1ODY0MzgwMTZ9.fJBqMP2OZEH-fGWRrYJl64rVhgpCLtQHvumLS6-i1bU
+
+{
+	"pageName":"podcast",
+	"filePath":"NoPath",
+    "user":{
+        "username":"bradamorg007"
+    },
+	"videoTitle":"another test video",
+	"videoDescription":"this is another test video"
+}
